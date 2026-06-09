@@ -1,0 +1,66 @@
+/* 全体の背景とフォント */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #eef1f5;
+    margin: 0;
+    padding: 0;
+    text-align: center; /* h2 やフォームを中央寄せ */
+}
+ 
+/* タイトル */
+h2 {
+    margin-top: 60px;
+    margin-bottom: 30px;
+    color: #333;
+}
+ 
+/* フォーム全体を中央に寄せる */
+form {
+    display: inline-block;
+    padding: 25px 30px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    text-align: left; /* ラベルと入力欄は左寄せ */
+}
+ 
+/* ラベルと入力欄の間隔 */
+form input {
+    margin-bottom: 15px;
+}
+ 
+/* 入力欄の見た目 */
+input[type="text"],
+input[type="password"],
+input[type="ID_number"],
+input[type="PW_text"] {
+    width: 200px;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+    box-sizing: border-box;
+}
+ 
+/* ログインボタン */
+input[type="submit"] {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+ 
+input[type="submit"]:hover {
+    background-color: #005fcc;
+}
+ 
+/* エラーメッセージ */
+p[style] {
+    color: #d9534f !important;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
