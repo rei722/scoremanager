@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
+
+<!-- 学生別成績一覧 -->
 <div class="mx-3 mt-3">
+<!-- 学生情報表示 -->
     <p class="mb-1">氏名：${student.name}（${student.no}）</p>
+    <!-- 成績データ有無判定 -->
     <c:choose>
+    <!-- 成績データが存在しない場合 -->
         <c:when test="${empty testList}">
             <p>成績情報が存在しませんでした</p>
         </c:when>
+        <!-- 成績一覧表示 -->
         <c:otherwise>
+        <!-- 成績一覧テーブル -->
             <table class="table">
                 <thead>
                     <tr>
@@ -17,6 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
+                <!-- 科目ごとの成績表示 -->
                     <c:forEach var="row" items="${testList}">
                         <tr>
                             <td>${row.subjectName}</td>
@@ -29,46 +37,6 @@
             </table>
         </c:otherwise>
     </c:choose>
-</div>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-<%@ taglib prefix="c" uri="jakarta.tags.core" %>
-<div class="mx-3 mt-3">
-	<p class="mb-1">科目：${subject.name}</p>
-	<table class="table">
-		<thead>
-			<tr>
-				<th>入学年度</th>
-				<th>クラス</th>
-				<th>学生番号</th>
-				<th>氏名</th>
-				<c:forEach begin="1" end="${maxNo}" var="no">
-					<th>${no}回</th>
-				</c:forEach>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="row" items="${testList}">
-				<tr>
-					<td>${row.entYear}</td>
-					<td>${row.classNum}</td>
-					<td>${row.studentNo}</td>
-					<td>${row.studentName}</td>
-					<c:forEach begin="1" end="${maxNo}" var="no">
-					    <td>
-					        <c:choose>
-					            <c:when test="${not empty row.points[no]}">
-					                ${row.points[no]}
-					            </c:when>
-					            <c:otherwise>
-					                ----
-					            </c:otherwise>
-					        </c:choose>
-					    </td>
-					</c:forEach>
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
 </div>
 <jsp:include page="../footer.html" />
 <!-- test_list_student.jsp -->
