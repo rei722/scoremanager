@@ -63,22 +63,13 @@ public class TestRegistAction extends Action {
 		no = request.getParameter("f4");
 
 		// 入学年度を数値へ変換
-		try {
-			if (entYearStr != null && !entYearStr.isEmpty()) {
-				entYear = Integer.parseInt(entYearStr);
-			}
-
-		} catch (NumberFormatException e) {
-			entYear = 0;
+		if (entYearStr != null && !entYearStr.isEmpty()) {
+		    entYear = Integer.parseInt(entYearStr);
 		}
-
+		
 		// 回数を数値へ変換
-		try {
-			if (no != null && !no.isEmpty()) {
-				testNo = Integer.parseInt(no);
-			}
-		} catch (NumberFormatException e) {
-			testNo = 0;
+		if (no != null && !no.isEmpty()) {
+		    testNo = Integer.parseInt(no);
 		}
 
 		// クラス一覧
@@ -135,16 +126,22 @@ public class TestRegistAction extends Action {
 					"f1","入学年度とクラスと科目と回数を選択してください");
 		}
 
-		// JSPへ検索結果と選択肢を渡す
+		// JSPの検索条件保持
 		request.setAttribute("f1", entYearStr);
 		request.setAttribute("f2", classNum);
 		request.setAttribute("f3", subjectCd);
 		request.setAttribute("f4", no);
+		
+		// JSPの検索結果
 		request.setAttribute("test_list", testList);
+		
+		//JSPの検索一覧
 		request.setAttribute("class_num_set", list);
 		request.setAttribute("ent_year_set", entYearSet);
 		request.setAttribute("no_set", noSet);
 		request.setAttribute("subject_set", subjectList);
+		
+		//エラー
 		request.setAttribute("errors", errors);
 
 		// 成績登録画面へフォワード
