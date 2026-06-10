@@ -1,19 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="jakarta.tags.core" %>
 
-<!-- 学生別成績一覧 -->
+<%-- 学生別成績一覧 --%>
 <div class="mx-3 mt-3">
-<!-- 学生情報表示 -->
+<%-- 学生情報表示 --%>
     <p class="mb-1">氏名：${student.name}（${student.no}）</p>
-    <!-- 成績データ有無判定 -->
+    <%-- 成績データ有無判定 --%>
     <c:choose>
-    <!-- 成績データが存在しない場合 -->
+    <%-- 成績データが存在しない場合 --%>
         <c:when test="${empty testList}">
             <p>成績情報が存在しませんでした</p>
         </c:when>
-        <!-- 成績一覧表示 -->
+        <%-- 成績一覧表示 --%>
         <c:otherwise>
-        <!-- 成績一覧テーブル -->
+        <%-- 成績一覧テーブル --%>
             <table class="table">
                 <thead>
                     <tr>
@@ -24,7 +24,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                <!-- 科目ごとの成績表示 -->
+                <%-- 科目ごとの成績表示 --%>
                     <c:forEach var="row" items="${testList}">
                         <tr>
                             <td>${row.subjectName}</td>
@@ -39,4 +39,4 @@
     </c:choose>
 </div>
 <jsp:include page="../footer.html" />
-<!-- test_list_student.jsp -->
+<%-- test_list_student.jsp --%>

@@ -6,15 +6,15 @@
 <head>
     <meta charset="UTF-8">
     <title>${param.title}</title>
-    <!-- Bootstrap読み込み -->
+    <%-- Bootstrap読み込み --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
 <body>
-<!-- ヘッダー（システム名・ユーザー情報・ログアウト） -->
+<%-- ヘッダー（システム名・ユーザー情報・ログアウト） --%>
     <header class="bg-primary text-white p-3 mb-4 d-flex justify-content-between align-items-center">
     	<h1 class="h4 mb-0">得点管理システム</h1>
     	<div>
-    	<!-- ログインユーザー表示 -->
+    	<%-- ログインユーザー表示 --%>
         	${sessionScope.user.name}様
         	<a href="Logout.action" class="text-white ms-3">ログアウト</a>
     	</div>
@@ -22,9 +22,9 @@
 	
     <div class="container-fluid">
         <div class="row">
-        <!-- サイドメニュー -->
+        <%-- サイドメニュー --%>
             <nav class="col-2">
-            <!-- メニュー一覧 -->
+            <%-- メニュー一覧 --%>
                 <ul class="list-unstyled">
                     <li><a href="Menu.action">メニュー</a></li>
 					<li><a href="StudentList.action">学生管理</a></li>
@@ -37,7 +37,7 @@
 					<li><a href="SubjectList.action">科目管理</a></li>
                 </ul>
             </nav>
-            <!-- メインコンテンツ表示領域 -->
+            <%-- メインコンテンツ表示領域 --%>
             <main class="col-10">
                 ${param.content}
             </main>
