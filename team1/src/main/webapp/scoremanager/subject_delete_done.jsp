@@ -10,7 +10,7 @@
     
         <section class="me-4">
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報削除</h2>
-            <div class="alert alert-success mx-3">削除が完了しました</div>
+            <div class="alert alert-success text-center mx-auto">削除が完了しました</div>
             <div class="mx-3 mt-3">
                 <a href="SubjectList.action">科目一覧</a>
             </div>

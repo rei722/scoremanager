@@ -8,7 +8,7 @@
         <section class="me-4">
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">成績管理</h2>
             <%-- 登録完了メッセージ --%>
-            <div class="alert alert-success mx-3">登録が完了しました</div>
+            <div class="alert alert-success text-center mx-auto">登録が完了しました</div>
             <%-- 画面遷移リンク --%>
             <div class="mx-3 mt-3">
                 <a href="TestRegist.action">戻る</a>

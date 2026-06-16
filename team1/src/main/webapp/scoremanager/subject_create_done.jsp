@@ -14,7 +14,7 @@
             <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報登録</h2>
             
             <%--登録完了 --%>
-            <div class="alert alert-success mx-3">登録が完了しました</div>
+            <div class="alert alert-success text-center mx-auto">登録が完了しました</div>
             <div class="mx-3 mt-3">
                 <a href="../scoremanager/Menu.action">戻る</a>
                 &nbsp;&nbsp;&nbsp;&nbsp;
