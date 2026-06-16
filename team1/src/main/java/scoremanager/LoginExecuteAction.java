@@ -37,7 +37,8 @@ public class LoginExecuteAction extends Action{
 		}
 		// 認証失敗時のメッセージを設定
 		request.setAttribute("error", "IDまたはパスワードが確認できませんでした");	
-		
+		// IDの再表示するため
+		request.setAttribute("id", id);
 		// ログイン画面へ戻る
 		request.getRequestDispatcher("login.jsp").forward(request, response);
 	}

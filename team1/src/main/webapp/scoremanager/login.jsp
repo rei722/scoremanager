@@ -1,8 +1,5 @@
 <%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
  
-<%@ include file="../header.html" %>
-
- <!DOCTYPE html>
 <html lage="ja">
 <head>
 <meta charset="UTF-8">
@@ -11,7 +8,7 @@
 </head>
 <body>
  
-<h2>得点管理システム</h2>
+<h2>ログイン</h2>
  
 <%
     String error = (String) request.getAttribute("error");
@@ -23,10 +20,23 @@
 %>
  
 <form action="LoginExecute.action" method="post">
-	ID : <input type="text" name="id" required><br>
-	PW : <input type="password" name="password" required><br>
+	ID : <input type="text" name="id" value="${id}" required><br>
+	PW : <input type="password" name="password" id="password" required><br>
+	
+	<div style="text-align:center;">
+		<input type="checkbox" name="chk_d_ps" id="No4">
+		<label for="No4">パスワードを表示</label>
+	</div>
 	
 	<input type="submit" value="ログイン">
 </form>
+
+<script>
+    document.getElementById('No4').addEventListener('change', function () {
+        var pw = document.getElementById('password');
+        pw.type = this.checked ? 'text' : 'password';
+    });
+</script>
+ 
 </body>
 </html>
