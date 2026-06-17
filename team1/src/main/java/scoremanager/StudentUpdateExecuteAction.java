@@ -69,21 +69,16 @@ public class StudentUpdateExecuteAction extends Action {
             return;
         }
 
-        int entYear =
-                Integer.parseInt(entYearStr);
-
-        Student student = new Student();
-
-        student.setNo(no);
+        StudentDao sDao = new StudentDao();
+        Student student = sDao.get(no);
+        
         student.setName(name);
-        student.setEntYear(entYear);
         student.setClassNum(classNum);
         student.setAttend(isAttend);
         student.setSchool(teacher.getSchool());
 
-        StudentDao studentDao =new StudentDao();
 
-        studentDao.save(student);
+        sDao.save(student);
 
         req.getRequestDispatcher(
                 "/scoremanager/student_update_done.jsp")
