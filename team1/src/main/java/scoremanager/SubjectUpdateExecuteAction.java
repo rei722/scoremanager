@@ -35,11 +35,6 @@ public class SubjectUpdateExecuteAction extends Action {
 		    
 		    Map<String, String> errors = new HashMap<>();
  
-		    // 科目名のチェック
-		    if (name == null || name.isEmpty()) {
-		        errors.put("name", "科目名を入力してください");
-		    }
-		    
 		    // 科目コードの存在チェック（編集中に別画面で削除された場合など）
 		    Subject existing = subjectDao.get(cd, teacher.getSchool());
 		    if (existing == null) {
