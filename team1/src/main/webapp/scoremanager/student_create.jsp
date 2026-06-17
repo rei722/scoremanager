@@ -11,12 +11,12 @@
 	<c:param name="content">
  
  		<section class="me-4">
-			<!-- タイトル -->
+			<%--タイトル--%>
 			<h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生情報登録</h2>
 		 
 			<form action = "StudentCreateExecute.action" method = "post">
 			
-				<!-- 入学年度 -->
+				<%-- 入学年度--%>
 				<div class = "mb-3">
 					<label class="form-label">入学年度</label>
 					
@@ -41,13 +41,13 @@
 					
 					</select>
 					
-					<!-- 入学年度未選択エラー -->
+					<%--入学年度未選択エラー --%>
 					 <div class="text-danger">
                         ${entYearError}
                     </div>
 				</div>
 				
-				<!-- 学生番号 -->
+				<%--学生番号 --%>
 				<div class = "mb-3">
 					<label class="form-label">学生番号</label>
 					
@@ -58,13 +58,13 @@
 							placeholder = "学生番号を入力してください"
 							required>
 							
-					<!-- 学生番号未入力エラー -->
+					<%--学生番号未入力エラー  --%>
 					<p class = "error">${numberError}</p>
-					<!-- 学生番号重複エラー -->
+					<%--学生番号重複エラー --%>
 					<p class = "error">${duplicateError}</p>
 				</div>
 		 
-				<!-- 氏名 -->
+				<%--氏名 --%>
 				<div class = "mb-3">
 					<label class="form-label">氏名</label>
 					
@@ -75,11 +75,11 @@
 							placeholder = "氏名を入力してください"
 							required>
 								
-					<!-- 氏名未入力エラー -->
+					<%--氏名未入力エラー --%>
 					<p class = "error">${nameError}</p>
 				</div>
 				
-				<!-- クラス -->
+				<%--クラス --%>
 				<div class="mb-4">
 				    <label class="form-label">クラス</label>
 				
@@ -92,13 +92,13 @@
 				        </c:forEach>
 				    </select>
 				</div>
-				<!-- 登録ボタン -->
+				<%--登録ボタン --%>
 				<div class = "mb-3">
 					<input type = "submit" value = "登録して終了" class="btn btn-secondary">
 				</div>
 			</form>
 			
-			<!-- 戻る -->
+			<%--戻る --%>
 			<a href = "StudentList.action">戻る</a>
 		</section>
 	</c:param>

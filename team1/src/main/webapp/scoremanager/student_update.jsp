@@ -17,7 +17,7 @@
 				<%--入学年度 --%>
 				<div class="mb-3">
 					<form action="StudentUpdateExecute.action" method="post"
-						class="needs-validation" novalidate>
+						class="needs-validation" >
 							 <label>入学年度</label>
 							<div>
 								${student.entYear} <input type="hidden" name="entYear"
@@ -37,7 +37,7 @@
 					<%--氏名 --%>
 					<div class="form-group">
 						<label>氏名</label> <input type="text" name="name" value="${student.name}"
-							placeholder="氏名を入力してください" maxlength="30">
+							placeholder="氏名を入力してください" maxlength="30" required>
 	
 						<%--エラーメッセージ --%>
 						<p class="error">${nameError}</p>
@@ -55,7 +55,7 @@
 					</select>
 	
 					<%--在学中 --%>
-					<div class="form-group check-group">
+					<div class="form-group check-group mt-3">
 	
 						<label>在学中</label> <input type="checkbox" name="is_attend"
 							value="true"
@@ -65,8 +65,8 @@
 					</div>
 	
 					<%--変更ボタン --%>
-					<div class="button">
-						<input type="submit" value="変更">
+					<div class="button mt-3">
+						<input type="submit" value="変更" class="btn btn-primary">
 					</div>
 	
 	

@@ -1,7 +1,6 @@
 package scoremanager;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.List;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -9,6 +8,7 @@ import jakarta.servlet.http.HttpSession;
 
 import bean.Student;
 import bean.Teacher;
+import dao.ClassNumDao;
 import dao.StudentDao;
 import tool.Action;
 
@@ -32,17 +32,36 @@ public class StudentUpdateExecuteAction extends Action {
         boolean isAttend =
                 req.getParameter("is_attend") != null;
 
-        Map<String, String> errors =
-                new HashMap<>();
-
         // 氏名チェック
         if (name == null || name.trim().isEmpty()) {
 
-            errors.put("name",
-                    "氏名を入力してください");
-
-            req.setAttribute("errors", errors);
-
+            req.setAttribute("nameError","氏名を入力してください");
+            
+            Student errorStudent = new Student();
+            errorStudent.setNo(no);
+            errorStudent.setName(name);
+            errorStudent.setClassNum(classNum);
+            
+            if (entYearStr != null && !entYearStr.isEmpty()) {
+                try {
+                    errorStudent.setEntYear(Integer.parseInt(entYearStr));
+                } catch (NumberFormatException e) {
+                    //失敗時は初期値のまま
+                }
+            }
+            
+            req.setAttribute("student", errorStudent);
+            
+            //クラス一覧再取得
+            ClassNumDao cdao = new ClassNumDao();
+            List<String> classList = cdao.filter(teacher.getSchool());
+            
+            req.setAttribute("class_num_set", classList);
+            
+            //チェックボックス
+            req.setAttribute("is_attend", isAttend);
+            
+            
             req.getRequestDispatcher(
                     "/scoremanager/student_update.jsp")
                     .forward(req, res);
@@ -53,19 +72,16 @@ public class StudentUpdateExecuteAction extends Action {
         int entYear =
                 Integer.parseInt(entYearStr);
 
-        Student student =
-                new Student();
+        Student student = new Student();
 
         student.setNo(no);
         student.setName(name);
         student.setEntYear(entYear);
         student.setClassNum(classNum);
         student.setAttend(isAttend);
-        student.setSchool(
-                teacher.getSchool());
+        student.setSchool(teacher.getSchool());
 
-        StudentDao studentDao =
-                new StudentDao();
+        StudentDao studentDao =new StudentDao();
 
         studentDao.save(student);
 
