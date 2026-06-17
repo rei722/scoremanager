@@ -56,7 +56,7 @@ public class StudentCreateExecuteAction extends Action {
 			// エラーメッセージ設定
 			request.setAttribute(
 					"duplicateError",
-					"その学生番号は既に登録されています");
+					"学生番号が重複しています");
  
 			// 入力内容保持
 			request.setAttribute("ent_year", entYearStr);

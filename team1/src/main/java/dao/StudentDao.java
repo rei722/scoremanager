@@ -174,7 +174,7 @@ public class StudentDao extends Dao {
 		String conditionIsAttend = "";
 		//在学フラグがtrueだった場合
 		if (isAttend) {
-			conditionIsAttend = "and is_attend=true";
+			conditionIsAttend = "and is_attend=true ";
 		}
 
 		try {

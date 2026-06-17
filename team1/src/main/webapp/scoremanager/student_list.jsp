@@ -29,10 +29,10 @@
 						<div class="col-2">
 							<label class="form-label" for="student-f1-select">入学年度</label>
 							<select class="form-select" id="student-f1-select" name="f1">
-								<option value="">--------</option>
+								<option value="0">--------</option>
 								<c:forEach var="year" items="${ent_year_set }">
 									<option value="${year }"
-										<c:if test="${year==f1 }">selected</c:if>>${year }</option>
+										<c:if test="${year == f1}">selected</c:if>>${year}</option>
 								</c:forEach>
 							</select>
 						</div>
@@ -41,7 +41,7 @@
 						<div class="col-2">
 							<label class="form-label" for="student-f2-select">クラス</label>
 							<select class="form-select" id="student-f2-select" name="f2">
-								<option value="">--------</option>
+								<option value="0">--------</option>
 								<c:forEach var="num" items="${class_num_set }">
 									<option value="${num }"
 										<c:if test="${num==f2 }">selected</c:if>>${num  }</option>
@@ -51,16 +51,24 @@
  
  
 						<%-- 在学中のみ表示するチェックボックス --%>
-						<div class="col-auto mt-4">
-							<label class="form-check-label"> <input type="checkbox"
-								class="form-check-input" name="isAttend"> <c:if
-									test="${isAttend }"></c:if>在学中
+						<div class="col-2 form-check text-center">
+							<label class="form-check-label" for="student-f3-check">在学中 
+								<input class="form-check-input" type="checkbox"
+									id="student-f3-check" name="f3" value="t" <c:if
+									test="${!empty f3 }">checked</c:if>
 							</label>
 						</div>
- 
+ 					
 						<%-- 検索実行ボタン --%>
-						<div class="col-auto mt-4">
-							<button type="submit" class="btn btn-primary">絞込み</button>
+						<div class="col-2 text-center">
+							<button class="btn btn-primary" id="filter-button">絞込み</button>
+						</div>
+						
+						<%--エラーメッセージ--%>
+						<div class="col-12">
+							<div class="text-warning">
+								${errors.f1}
+							</div>
 						</div>
  
 					</div>
@@ -70,7 +78,7 @@
 				<c:choose>
  
 					<%-- データが存在する場合 --%>
-					<c:when test="${not empty students}">
+					<c:when test="${students.size() >0}">
  
 						<%-- 検索件数表示 --%>
 						<div class="count mt-3 mx-3">検索結果：${students.size()}件</div>
@@ -83,24 +91,22 @@
 									<th>学生番号</th>
 									<th>氏名</th>
 									<th>クラス</th>
-									<th>在学中</th>
+									<th class="text-center">在学中</th>
 									<th></th>
 								</tr>
 							</thead>
- 
-							<tbody>
 								<%-- 学生情報を1件ずつ表示 --%>
-								<c:forEach var="s" items="${students}">
+								<c:forEach var="student" items="${students}">
  
 									<tr>
-										<td>${s.entYear}</td>
-										<td>${s.no}</td>
-										<td>${s.name}</td>
-										<td>${s.classNum}</td>
+										<td>${student.entYear}</td>
+										<td>${student.no}</td>
+										<td>${student.name}</td>
+										<td>${student.classNum}</td>
  
 										<%-- 在学状態を○×で表示 --%>
 										<td><c:choose>
-												<c:when test="${s.attend}">
+												<c:when test="${student.attend}">
 									○
 								</c:when>
 												<c:otherwise>
@@ -109,7 +115,7 @@
 											</c:choose></td>
  
 										<%-- 学生情報変更画面へのリンク --%>
-										<td><a href="StudentUpdate.action?no=${s.no}"> 変更 </a></td>
+										<td><a href="StudentUpdate.action?no=${student.no}"> 変更 </a></td>
 									</tr>
 								</c:forEach>
 							</tbody>

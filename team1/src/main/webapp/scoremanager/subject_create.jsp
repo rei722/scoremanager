@@ -27,7 +27,7 @@
 								placeholder="例: 科目コードを入力してください" required>
 								
 						<%--エラー表示 --%>		
-						<div style="color:orange;">
+						<div class="text-warning">
 							${errors.cd}
 						</div>
 					
@@ -41,7 +41,7 @@
 							placeholder="例: 科目名を入力してください" required>
 							
 							<%--エラー表示 --%>
-						<div style="color:orange;">
+						<div class="text-warning">
 							${errors.name}
 						</div>
 					</div>

@@ -42,7 +42,7 @@
 					</select>
 					
 					<%--入学年度未選択エラー --%>
-					 <div class="text-danger">
+					 <div class="text-warning">
                         ${entYearError}
                     </div>
 				</div>
@@ -59,9 +59,9 @@
 							required>
 							
 					<%--学生番号未入力エラー  --%>
-					<p class = "error">${numberError}</p>
+					<p class = "text-warning">${numberError}</p>
 					<%--学生番号重複エラー --%>
-					<p class = "error">${duplicateError}</p>
+					<p class = "text-warning">${duplicateError}</p>
 				</div>
 		 
 				<%--氏名 --%>
@@ -76,7 +76,7 @@
 							required>
 								
 					<%--氏名未入力エラー --%>
-					<p class = "error">${nameError}</p>
+					<p class = "text-warning">${nameError}</p>
 				</div>
 				
 				<%--クラス --%>
