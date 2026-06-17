@@ -17,7 +17,7 @@
 			
 			<%--変更 --%>
 			<div class="mx-3">
-				<form action="SubjectUpdateExecute.action" method="post" class="needs-validation" novalidate>
+				<form action="SubjectUpdateExecute.action" method="post" class="needs-validation">
 					
 					<%--科目コード(表示のみ) --%>
 					<div class="mb-3">
@@ -26,6 +26,10 @@
 							${subject.cd}
 							<%--送信 --%>
 							<input type="hidden" name="cd" value="${subject.cd}">
+						</div>
+							<%--エラー --%>
+						<div style="color:orange;">
+							${errors.cd}
 						</div>
 					</div>
 					
@@ -52,3 +56,4 @@
 		</section>
 	</c:param>
 </c:import>
+<jsp:include page="../footer.html" />

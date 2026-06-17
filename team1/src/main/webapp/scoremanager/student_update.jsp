@@ -1,59 +1,82 @@
-<%--科目情報変更画面 --%>
-
-<%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-<%@ taglib prefix="c" uri="jakarta.tags.core"%>
+<%@ page language="java" contentType="text/html; charset = UTF-8"
+	pageEncoding="UTF-8"%>
+<%@taglib prefix="c" uri="jakarta.tags.core"%>
+ 
 <c:import url="/common/base.jsp">
-	<c:param name="title">
-		科目管理システム - 科目情報変更
-	</c:param>
-	
+ 
+	<c:param name="title">学生情報変更</c:param>
+ 
 	<c:param name="scripts"></c:param>
-	
-	<%--メインコンテンツ --%>
+ 
 	<c:param name="content">
 		<section class="me-4">
-			<h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">科目情報変更</h2>
-			
-			<%--変更 --%>
-			<div class="mx-3">
-				<form action="SubjectUpdateExecute.action" method="post" class="needs-validation">
-					
-					<%--科目コード(表示のみ) --%>
-					<div class="mb-3">
-						<label for="subjectCd" class="form-label">科目コード</label>
-						<div>
-							${subject.cd}
-							<%--送信 --%>
-							<input type="hidden" name="cd" value="${subject.cd}">
-						</div>
-							<%--エラー --%>
-						<div style="color:orange;">
-							${errors.cd}
-						</div>
-					</div>
-					
-					<%--科目名入力 --%>
-					<div class="mb-3 row">
-						<label for="subjectName" class="col-sm-2 col-form-label">科目名</label>
-							<input type="text" class="form-control" id="subjectName" name="name" value="${subject.name}" 
-								placeholder="例: 科目名を入力してください" required>
-								
-							<%--エラー --%>
-							<div style="color:orange";>
-								${errors.name}
+			<div class="main">
+				<%--タイトル --%>
+				<h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">学生情報変更</h2>
+ 
+				<%--入学年度 --%>
+				<div class="mb-3">
+					<form action="StudentUpdateExecute.action" method="post"
+						class="needs-validation" novalidate>
+							 <label>入学年度</label>
+							<div>
+								${student.entYear} <input type="hidden" name="entYear"
+									value="${student.entYear}">
 							</div>
+					</div>
+	
+	
+					<%--学生番号 --%>
+					<div class="mb-3">
+						<label>学生番号</label>
+						<div>
+							${student.no} <input type="hidden" name="no" value="${student.no}">
 						</div>
 					</div>
-					
-					<div class="mt-4">
-						<button type="submit" class="btn btn-primary me-2">変更</button>
-						<a href="SubjectList.action" class="btn btn-outline-secondary">戻る</a>
+	
+					<%--氏名 --%>
+					<div class="form-group">
+						<label>氏名</label> <input type="text" name="name" value="${student.name}"
+							placeholder="氏名を入力してください" maxlength="30">
+	
+						<%--エラーメッセージ --%>
+						<p class="error">${nameError}</p>
 					</div>
-					
+	
+					<%--クラス --%>
+					<select class="form-select" name="classNum">
+						<c:forEach var="num" items="${class_num_set}">
+							<option value="${num}"
+								<c:if test="${num == student.classNum}">
+	                selected
+	            </c:if>>
+								${num}</option>
+						</c:forEach>
+					</select>
+	
+					<%--在学中 --%>
+					<div class="form-group check-group">
+	
+						<label>在学中</label> <input type="checkbox" name="is_attend"
+							value="true"
+							<%if (Boolean.TRUE.equals(request.getAttribute("is_attend"))) {%>
+							checked <%}%>>
+	
+					</div>
+	
+					<%--変更ボタン --%>
+					<div class="button">
+						<input type="submit" value="変更">
+					</div>
+	
+	
+					<%--戻る --%>
+					<div class="back">
+						<a href="StudentList.action">戻る</a>
+					</div>
+ 
 				</form>
 			</div>
 		</section>
 	</c:param>
 </c:import>
-<jsp:include page="../footer.html" />
