@@ -18,7 +18,7 @@
 			
 			<%--科目登録 --%>
 			<div class="mx-3">
-				<form action="SubjectCreateExecute.action" method="post" class="needs-validation" novalidate>
+				<form action="SubjectCreateExecute.action" method="post" class="needs-validation">
 					
 					<%--科目コード入力 --%>
 					<div class="mb-3 row">
@@ -56,3 +56,4 @@
 		</section>
 	</c:param>
 </c:import>
+<jsp:include page="../footer.html" />

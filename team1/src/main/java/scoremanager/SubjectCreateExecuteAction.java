@@ -37,19 +37,9 @@ public class SubjectCreateExecuteAction extends Action{
 	    Map<String, String> errors = new HashMap<>();
 
 	    // 2. バリデーション（入力チェック）
-	    // 科目コードのチェック
-	    if (cd == null || cd.isEmpty()) {
-	        errors.put("cd", "科目コードを入力してください");
-	    } else if (cd.length() != 3) { 
+	    if (cd.length() != 3) { 
 	        // 必要に応じて桁数チェック（例として3桁。設定に合わせて変更・削除してください）
-	        errors.put("cd", "科目コードは3文字で入力してください");
-	        
-	    }
-
-	    // 科目名のチェック
-	    if (name == null || name.isEmpty()) {
-	        errors.put("name", "科目名を入力してください");
-	        
+	        errors.put("cd", "科目コードは3文字で入力してください");  
 	    }
 
 	    // 重複チェック（既に同じコードの科目が登録されていないか確認）
