@@ -1,39 +1,15 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
- 
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset = "UTF-8">
-<title>ログアウト</title>
- 
-<link rel = "stylesheet" href = "css/logout.css">
- 
-</head>
-<body>
- 
-<div class="main">
-	<!-- メイン -->
-	<main>
- 
-		<!-- タイトル -->
-		<div class="title">
-			ログアウト
-		</div>
-		
-		<!-- メッセージ -->
-		<div class="message">
-			ログアウトしました
-		</div>
-		
-		<!-- ログイン画面リンク -->
-		<div class="login-link">
-			<a href="login.jsp">ログイン</a>
-		</div>
-		
-	</main>
- 
-</div>
- 
-</body>
-</html>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="jakarta.tags.core" %>
+<c:import url="/common/base.jsp">
+    <c:param name="title">ログアウト</c:param>
+    <c:param name="scripts"></c:param>
+    <c:param name="content">
+        <section class="me-4">
+            <h2 class="h3 mb-3 fw-normal bg-secondary bg-opacity-10 py-2 px-4">ログアウト</h2>
+            <div class="alert alert-success text-center mx-auto">ログアウトしました</div>
+            <div class="mx-3 mt-3">
+                <a href = "Login.action">ログイン</a>
+            </div>
+        </section>
+    </c:param>
+</c:import>

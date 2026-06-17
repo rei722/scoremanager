@@ -46,5 +46,3 @@
 		</tbody>
 	</table>
 </div>
-<jsp:include page="../footer.html" />
-<%-- test_list_subject.jsp --%>

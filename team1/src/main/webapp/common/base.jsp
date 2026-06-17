@@ -9,7 +9,7 @@
     <%-- Bootstrap読み込み --%>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 <%-- ヘッダー（システム名・ユーザー情報・ログアウト） --%>
     <header class="bg-primary text-white p-3 mb-4 d-flex justify-content-between align-items-center">
     	<h1 class="h4 mb-0">得点管理システム</h1>
@@ -20,7 +20,7 @@
     	</div>
 	</header>
 	
-    <div class="container-fluid">
+    <div class="container-fluid flex-grow-1">
         <div class="row">
         <%-- サイドメニュー --%>
             <nav class="col-2">
@@ -43,5 +43,9 @@
             </main>
         </div>
     </div>
+     <!-- フッター -->
+    <footer class="bg-secondary text-white text-center p-3">
+        © 2026 得点管理システム
+    </footer>
 </body>
 </html>

@@ -38,5 +38,3 @@
         </c:otherwise>
     </c:choose>
 </div>
-<jsp:include page="../footer.html" />
-<%-- test_list_student.jsp --%>

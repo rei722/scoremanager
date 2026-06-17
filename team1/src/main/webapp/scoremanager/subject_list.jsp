@@ -64,4 +64,3 @@
 		</section>
 	</c:param>
 </c:import>
-<jsp:include page="../footer.html" />
