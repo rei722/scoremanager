@@ -28,7 +28,7 @@
 							<input type="hidden" name="cd" value="${subject.cd}">
 						</div>
 							<%--エラー --%>
-						<div style="color:orange;">
+						<div class="text-warning">
 							${errors.cd}
 						</div>
 					</div>
@@ -40,7 +40,7 @@
 								placeholder="例: 科目名を入力してください" required>
 								
 							<%--エラー --%>
-							<div style="color:orange";>
+							<div class="text-warning";>
 								${errors.name}
 							</div>
 						</div>
@@ -56,4 +56,3 @@
 		</section>
 	</c:param>
 </c:import>
-<jsp:include page="../footer.html" />

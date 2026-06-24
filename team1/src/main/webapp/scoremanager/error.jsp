@@ -7,4 +7,3 @@
     <c:param name="content" value="エラーが発生しました" />
 </c:import>
 
-<jsp:include page="../footer.html" />
