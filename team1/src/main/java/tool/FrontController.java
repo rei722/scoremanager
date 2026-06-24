@@ -35,7 +35,7 @@ public class FrontController extends HttpServlet {
 		} catch (Exception e) {
 			e.printStackTrace();
 			//エラーページへリダイレクト
-			request.getRequestDispatcher("/error.jsp").forward(request, response);
+			request.getRequestDispatcher("/scoremanager/error.jsp").forward(request, response);
 		}
 	}
 
